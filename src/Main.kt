@@ -1,7 +1,6 @@
 package abstractFactory
 
 fun main(args: Array<String>) {
-
     val hondaFactory: CarAbstractFactory = HondaFactory()
     val volvoFactory: CarAbstractFactory = VolvoFactory()
 

@@ -1,6 +1,17 @@
 package abstractFactory
 
 class VolvoFactory: CarAbstractFactory {
+    companion object {
+        private var volvoFactory: VolvoFactory? = null
+
+        operator fun invoke() : VolvoFactory {
+            if(volvoFactory == null) {
+                volvoFactory = VolvoFactory()
+            }
+            return volvoFactory as VolvoFactory
+        }
+    }
+
     override var name = "Volvo"
 
     override fun createSedan(): Sedan {
