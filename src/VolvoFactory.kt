@@ -1,11 +1,13 @@
 package abstractFactory
 
 class VolvoFactory: CarAbstractFactory {
+    override var name = "Volvo"
+
     override fun createSedan(): Sedan {
-        return Sedan("S60")
+        return Sedan("$name S60")
     }
 
     override fun createSuv(): Suv {
-        return Suv("XC90")
+        return Suv("$name XC90")
     }
 }

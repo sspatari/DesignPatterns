@@ -2,16 +2,16 @@ package abstractFactory
 
 fun main(args: Array<String>) {
 
-    // Honda
-    val hondaSedan = HondaFactory().createSedan()
-    val hondaSuv = VolvoFactory().createSuv()
+    val hondaFactory: CarAbstractFactory = HondaFactory()
+    val volvoFactory: CarAbstractFactory = VolvoFactory()
 
-    // Volvo
-    val volvoSedan = VolvoFactory().createSedan()
-    val volvoSuv = VolvoFactory().createSuv()
+    createCars(hondaFactory)
+    createCars(volvoFactory)
+}
 
-    hondaSedan.beep()
-    hondaSuv.beep()
-    volvoSedan.beep()
-    volvoSuv.beep()
+fun createCars(factory : CarAbstractFactory) {
+    val sedanCar = factory.createSedan()
+    val suvCar = factory.createSuv()
+    sedanCar.beep()
+    suvCar.beep()
 }

@@ -1,13 +1,14 @@
 package abstractFactory
 
 class HondaFactory: CarAbstractFactory {
+    override var name = "Honda"
 
     override fun createSedan(): Sedan {
-        return Sedan("Civic")
+        return Sedan("$name Civic")
     }
 
     override fun createSuv(): Suv {
-        return Suv("CR-V")
+        return Suv("$name CR-V")
     }
 
 }
