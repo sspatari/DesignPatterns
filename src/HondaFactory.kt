@@ -15,10 +15,18 @@ class HondaFactory private constructor(): CarAbstractFactory {
     override var name = "Honda"
 
     override fun createSedan(): Sedan {
-        return Sedan("$name Civic")
+        return Sedan.SedanBuilder()
+                .setModel("$name Civic")
+                .setColor("Red")
+                .setYear(2000)
+                .build()
     }
 
     override fun createSuv(): Suv {
-        return Suv("$name CR-V")
+        return Suv.SuvBuilder()
+                .setModel("$name CR-V")
+                .setColor("White")
+                .setYear(2004)
+                .build()
     }
 }

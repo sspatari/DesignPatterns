@@ -15,10 +15,18 @@ class VolvoFactory: CarAbstractFactory {
     override var name = "Volvo"
 
     override fun createSedan(): Sedan {
-        return Sedan("$name S60")
+        return Sedan.SedanBuilder()
+                .setModel("$name S60")
+                .setColor("Black")
+                .setYear(2008)
+                .build()
     }
 
     override fun createSuv(): Suv {
-        return Suv("$name XC90")
+        return Suv.SuvBuilder()
+                .setModel("$name XC90")
+                .setColor("Blue")
+                .setYear(2010)
+                .build()
     }
 }
