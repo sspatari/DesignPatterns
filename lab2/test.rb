@@ -1,10 +1,10 @@
-require './BeverageMachineFlyweightFactory'
+require './flyweight/beverage_machine_factory'
 
-beverageTypes = ["beer", "coffee", "tee", "beer", "coffee", "tee"]
+beverage_types = %w[coffee tee coffee tee]
 
-beverageMachineFlyweightFactory = BeverageMachineFlyweightFactory.new
+beverage_machine_factory = BeverageMachineFactory.new
 
-beverageTypes.each do |beverageType|
-  machine = beverageMachineFlyweightFactory.getFlyweight(beverageType)
+beverage_types.each do |beverage_type|
+  machine = beverage_machine_factory.get_flyweight(beverage_type)
   machine.make(Time.now)
 end
