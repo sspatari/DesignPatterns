@@ -5,6 +5,10 @@ class PersonnelFacade
     @name = name
   end
 
+  def work(car)
+    puts "#{@name} started working on #{car.brand_name} #{car.type}"
+  end
+
   def can_work?
     return false unless Knowledge.new.available?(@name) &&
                         Health.new.healthy?(@name) &&
