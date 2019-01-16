@@ -11,8 +11,13 @@ staff_names2 = %w[Cris Nacho]
 staff1 = staff_names1.map { |name| PersonnelFacade.new(name) }
 staff2 = staff_names2.map { |name| PersonnelFacade.new(name) }
 
-Iterator.new(staff1).my_each { |worker| mercedes_suv.add_staff(worker) }
-Iterator.new(staff2).my_each { |worker| huyndai_sedan.add_staff(worker) }
+Iterator.new(staff1.select(&:can_work?)).my_each do |worker|
+  mercedes_suv.add_staff(worker)
+end
+
+Iterator.new(staff2.select(&:can_work?)).my_each do |worker|
+  mercedes_suv.add_staff(worker)
+end
 
 mercedes_suv.start_construction
 huyndai_sedan.start_construction
